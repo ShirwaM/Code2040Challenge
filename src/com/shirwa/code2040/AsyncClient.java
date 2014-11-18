@@ -6,9 +6,9 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 import java.util.ArrayList;
@@ -68,7 +68,26 @@ public class AsyncClient {
             @Override
             public void run() {
                 try {
-                    post.setEntity(new UrlEncodedFormEntity(httpParams, HTTP.UTF_8));
+                    post.setEntity(new UrlEncodedFormEntity(httpParams, "UTF-8"));
+                    HttpResponse response = mClient.execute(post);
+                    String responseStr = processResponse(response);
+                    callback.onResponse(responseStr);
+                } catch (Exception e) {
+                    if (callback != null) callback.onError(e);
+                }
+            }
+        }).start();
+    }
+
+    public void post(String url, final String body, final Callback callback) {
+        final HttpPost post = new HttpPost(url);
+        post.setHeader("Content-Type", "application/json");
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    post.setEntity(new StringEntity(body, "UTF-8"));
                     HttpResponse response = mClient.execute(post);
                     String responseStr = processResponse(response);
                     callback.onResponse(responseStr);
