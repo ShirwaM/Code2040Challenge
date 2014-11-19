@@ -3,7 +3,11 @@ package com.shirwa.code2040;
 
 import com.google.gson.*;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -19,7 +23,7 @@ public class Challenge {
     public static void main(String[] args) {
         httpclient = new AsyncClient();
         userItem = new UserItem("shirwa99@gmail.com", "https://www.github.com/ShirwaM/Code2040Challenge");
-        getToken();
+        getToken(); //This method initiates the overall process and does what is required for each stage.
     }
 
     public static void getToken() {
@@ -34,7 +38,8 @@ public class Challenge {
                 userItem.setToken(o.get("result").getAsString());
                 //getString(); stage 1
                 //getNeedleInHayStack(); stage 2
-                getPrefix();
+                //getPrefix(); stage 3
+                getTime();
             }
 
             @Override
@@ -200,4 +205,55 @@ public class Challenge {
         });
     }
 
+    public static void getTime() {
+        JsonObject object = new JsonObject();
+        object.addProperty("token", userItem.getToken());
+        httpclient.post(baseURL + "time", object.toString(), new AsyncClient.Callback() {
+            @Override
+            public void onResponse(String response) {
+                JsonObject o = new JsonParser().parse(response).getAsJsonObject();
+                JsonObject object = o.get("result").getAsJsonObject();
+                String recievedDate = object.get("datestamp").getAsString();
+                String interval = object.get("interval").getAsString();
+                sendNewDate(getTimeInterval(recievedDate, interval));
+            }
+
+            @Override
+            public void onError(Exception e) {
+                System.out.print("Get Time " + e.getMessage());
+            }
+        });
+    }
+
+    public static String getTimeInterval(String date, String i) {
+        Date finalDate = null;
+        Long interval = Long.parseLong(i);
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        System.out.println("Given : " + date + " With Interal : " + i);
+        try {
+            Date mainDate = df.parse(date);
+            finalDate = new Date(mainDate.getTime() + interval);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return df.format(finalDate);
+    }
+
+    public static void sendNewDate(String date) {
+        JsonObject object = new JsonObject();
+        object.addProperty("token", userItem.getToken());
+        object.addProperty("datestamp", date);
+        System.out.println(object.toString());
+        httpclient.post(baseURL + "validatetime", object.toString(), new AsyncClient.Callback() {
+            @Override
+            public void onResponse(String response) {
+                System.out.print(response);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                System.out.print("Send Date " + e.getMessage());
+            }
+        });
+    }
 }
