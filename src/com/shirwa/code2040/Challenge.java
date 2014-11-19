@@ -18,10 +18,12 @@ public class Challenge {
     private static AsyncClient httpclient;
     private static UserItem userItem;
     private static String baseURL = "http://challenge.code2040.org/api/";
+    private static String email = "shirwa99@gmail.com";
+    private static String github = "https://www.github.com/ShirwaM/Code2040Challenge";
 
     public static void main(String[] args) {
         httpclient = new AsyncClient();
-        userItem = new UserItem("shirwa99@gmail.com", "https://www.github.com/ShirwaM/Code2040Challenge");
+        userItem = new UserItem(email, github);
         getToken(); //This method initiates the overall process and does what is required for each stage.
     }
 
