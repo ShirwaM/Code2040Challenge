@@ -1,23 +1,25 @@
 package com.shirwa.code2040;
 
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * Created by shirwamohamed on 11/18/14.
  */
+
 public class Challenge {
     private static AsyncClient httpclient;
     private static UserItem userItem;
+    private static String baseURL = "http://challenge.code2040.org/api/";
 
     public static void main(String[] args) {
         httpclient = new AsyncClient();
         userItem = new UserItem("shirwa99@gmail.com", "https://www.github.com/ShirwaM/Code2040Challenge");
         getToken();
-//        userItem.getStatus(httpclient);
     }
 
     public static void getToken() {
@@ -25,13 +27,14 @@ public class Challenge {
         object.addProperty("email", userItem.getEmail());
         object.addProperty("github", userItem.getGithub());
         System.out.println(object.toString());
-        httpclient.post("http://challenge.code2040.org/api/register", object.toString(), new AsyncClient.Callback() {
+        httpclient.post(baseURL + "register", object.toString(), new AsyncClient.Callback() {
             @Override
             public void onResponse(String response) {
                 JsonObject o = new JsonParser().parse(response).getAsJsonObject();
                 userItem.setToken(o.get("result").getAsString());
                 //getString(); stage 1
-                getNeedleInHayStack();
+                //getNeedleInHayStack(); stage 2
+                getPrefix();
             }
 
             @Override
@@ -45,7 +48,7 @@ public class Challenge {
         JsonObject object = new JsonObject();
         object.addProperty("token", userItem.getToken());
         System.out.println(object.toString());
-        httpclient.post("http://challenge.code2040.org/api/getstring", object.toString(), new AsyncClient.Callback() {
+        httpclient.post(baseURL + "getstring", object.toString(), new AsyncClient.Callback() {
             @Override
             public void onResponse(String response) {
                 JsonObject o = new JsonParser().parse(response).getAsJsonObject();
@@ -66,7 +69,7 @@ public class Challenge {
         object.addProperty("token", userItem.getToken());
         object.addProperty("string", reversed);
         System.out.println(object.toString());
-        httpclient.post("http://challenge.code2040.org/api/validatestring", object.toString(), new AsyncClient.Callback() {
+        httpclient.post(baseURL + "validatestring", object.toString(), new AsyncClient.Callback() {
             @Override
             public void onResponse(String response) {
                 System.out.println(response);
@@ -93,14 +96,13 @@ public class Challenge {
         JsonObject object = new JsonObject();
         object.addProperty("token", userItem.getToken());
         System.out.println(object.toString());
-        httpclient.post("http://challenge.code2040.org/api/haystack", object.toString(), new AsyncClient.Callback() {
+        httpclient.post(baseURL + "haystack", object.toString(), new AsyncClient.Callback() {
             @Override
             public void onResponse(String response) {
                 JsonObject o = new JsonParser().parse(response).getAsJsonObject();
                 JsonObject object = o.getAsJsonObject("result");
-                JsonArray array = o.getAsJsonArray("haystack");
-                String needle = object.get("needle").getAsString();
-                sendNeedleIndex(getNeedleInHayStackHelper(needle, array));
+                JsonArray array = object.get("haystack").getAsJsonArray();
+                sendNeedleIndex(getNeedleInHayStackHelper(object.get("needle").getAsString(), array));
             }
 
             @Override
@@ -111,8 +113,9 @@ public class Challenge {
     }
 
     public static int getNeedleInHayStackHelper(String needle, JsonArray haystack) {
+        String[] haystackString = getStringArray(haystack);
         for (int i = 0; i < haystack.size(); i++) {
-            if (haystack.get(i).toString().equals(needle))
+            if (haystackString[i].equals(needle))
                 return i;
         }
         return -1;//Needle was not found in the Haystack.
@@ -120,9 +123,10 @@ public class Challenge {
 
     public static void sendNeedleIndex(int index) {
         JsonObject object = new JsonObject();
-        object.addProperty(userItem.getToken(), index);
+        object.addProperty("token", userItem.getToken());
         object.addProperty("needle", index);
-        httpclient.post("http://challenge.code2040.org/api/validateneedle", object.toString(), new AsyncClient.Callback() {
+        System.out.print(object.toString());
+        httpclient.post(baseURL + "validateneedle", object.toString(), new AsyncClient.Callback() {
             @Override
             public void onResponse(String response) {
                 System.out.println(response);
@@ -135,5 +139,65 @@ public class Challenge {
         });
     }
 
+    public static String[] getStringArray(JsonArray jsonArray) {
+        String[] stringArray;
+        int length = jsonArray.size();
+        stringArray = new String[length];
+        for (int i = 0; i < length; i++) {
+            stringArray[i] = jsonArray.get(i).getAsString();
+        }
+        return stringArray;
+    }
+
+    public static void getPrefix() {
+        JsonObject object = new JsonObject();
+        object.addProperty("token", userItem.getToken());
+        httpclient.post(baseURL + "prefix", object.toString(), new AsyncClient.Callback() {
+            @Override
+            public void onResponse(String response) {
+                JsonObject o = new JsonParser().parse(response).getAsJsonObject();
+                JsonObject object = o.get("result").getAsJsonObject();
+                JsonArray array = object.get("array").getAsJsonArray();
+                String prefix = object.get("prefix").getAsString();
+                sendPrefix(getPrefix(array, prefix));
+            }
+
+            @Override
+            public void onError(Exception e) {
+                System.out.print("Get Prefix" + e.toString());
+            }
+        });
+    }
+
+    public static List<String> getPrefix(JsonArray jsonArray, String prefix) {
+        String array[] = getStringArray(jsonArray);
+        List<String> containPrefix = new ArrayList<String>();
+        for (int i = 0; i < array.length; i++) {
+            if (!array[i].startsWith(prefix))
+                containPrefix.add(array[i]);
+        }
+        return containPrefix;
+    }
+
+    public static void sendPrefix(List<String> array) {
+        JsonObject object = new JsonObject();
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(array);
+        JsonArray jsonArray = new JsonParser().parse(jsonString).getAsJsonArray();
+        object.addProperty("token", userItem.getToken());
+        object.add("array", jsonArray);
+        System.out.println(object.toString());
+        httpclient.post(baseURL + "validateprefix", object.toString(), new AsyncClient.Callback() {
+            @Override
+            public void onResponse(String response) {
+                System.out.print(response);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                System.out.println("SendPrefix " + e.getMessage());
+            }
+        });
+    }
 
 }
