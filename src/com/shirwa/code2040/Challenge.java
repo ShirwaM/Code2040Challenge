@@ -3,10 +3,9 @@ package com.shirwa.code2040;
 
 import com.google.gson.*;
 
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class Challenge {
                 //getString(); stage 1
                 //getNeedleInHayStack(); stage 2
                 //getPrefix(); stage 3
-                getTime();
+                getTime();//stage 4
             }
 
             @Override
@@ -226,17 +225,19 @@ public class Challenge {
     }
 
     public static String getTimeInterval(String date, String i) {
-        Date finalDate = null;
-        Long interval = Long.parseLong(i);
+        int interval = Integer.parseInt(i);
+        Date mainDate = null;
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         System.out.println("Given : " + date + " With Interal : " + i);
         try {
-            Date mainDate = df.parse(date);
-            finalDate = new Date(mainDate.getTime() + interval);
+            mainDate = df.parse(date);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return df.format(finalDate);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(mainDate);
+        calendar.add(Calendar.SECOND, interval);
+        return df.format(calendar.getTime());
     }
 
     public static void sendNewDate(String date) {

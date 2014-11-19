@@ -57,32 +57,32 @@
       <file leaf-file-name="Challenge.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/shirwa/code2040/Challenge.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4755435" vertical-offset="3162" max-vertical-offset="3885">
-              <caret line="253" column="42" selection-start-line="253" selection-start-column="42" selection-end-line="253" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.32554257" vertical-offset="420" max-vertical-offset="3900">
+              <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1569#1570#0" expanded="true" />
-                <element signature="e#1649#1650#0" expanded="true" />
-                <element signature="e#4180#4181#0" expanded="true" />
-                <element signature="e#4269#4270#0" expanded="true" />
-                <element signature="e#5058#5059#0" expanded="true" />
-                <element signature="e#5118#5119#0" expanded="true" />
-                <element signature="e#5188#5189#0" expanded="true" />
-                <element signature="e#5273#5274#0" expanded="true" />
-                <element signature="e#6358#6359#0" expanded="true" />
-                <element signature="e#6435#6436#0" expanded="true" />
-                <element signature="e#6637#6645#0" expanded="true" />
-                <element signature="e#7420#7421#0" expanded="true" />
-                <element signature="e#7478#7479#0" expanded="true" />
-                <element signature="e#7548#7549#0" expanded="true" />
-                <element signature="e#7630#7631#0" expanded="true" />
-                <element signature="e#8411#8412#0" expanded="true" />
-                <element signature="e#8489#8490#0" expanded="true" />
-                <element signature="e#9468#9469#0" expanded="true" />
-                <element signature="e#9526#9527#0" expanded="true" />
-                <element signature="e#9596#9597#0" expanded="true" />
-                <element signature="e#9675#9676#0" expanded="true" />
-                <marker date="1416369730000" expanded="true" signature="6095:6275" placeholder="..." />
+                <element signature="e#1543#1544#0" expanded="true" />
+                <element signature="e#1623#1624#0" expanded="true" />
+                <element signature="e#4154#4155#0" expanded="true" />
+                <element signature="e#4243#4244#0" expanded="true" />
+                <element signature="e#5032#5033#0" expanded="true" />
+                <element signature="e#5092#5093#0" expanded="true" />
+                <element signature="e#5162#5163#0" expanded="true" />
+                <element signature="e#5247#5248#0" expanded="true" />
+                <element signature="e#6332#6333#0" expanded="true" />
+                <element signature="e#6409#6410#0" expanded="true" />
+                <element signature="e#6611#6619#0" expanded="true" />
+                <element signature="e#7394#7395#0" expanded="true" />
+                <element signature="e#7452#7453#0" expanded="true" />
+                <element signature="e#7522#7523#0" expanded="true" />
+                <element signature="e#7604#7605#0" expanded="true" />
+                <element signature="e#8385#8386#0" expanded="true" />
+                <element signature="e#8463#8464#0" expanded="true" />
+                <element signature="e#9518#9519#0" expanded="true" />
+                <element signature="e#9576#9577#0" expanded="true" />
+                <element signature="e#9646#9647#0" expanded="true" />
+                <element signature="e#9725#9726#0" expanded="true" />
+                <marker date="1416376239000" expanded="true" signature="6069:6249" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -91,10 +91,9 @@
       <file leaf-file-name="AsyncClient.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/shirwa/code2040/AsyncClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1061" max-vertical-offset="1455">
-              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1455">
+              <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#1458#1883#0" expanded="true" />
                 <element signature="e#1872#1873#0" expanded="true" />
                 <element signature="e#2168#2188#0" expanded="true" />
@@ -495,12 +494,12 @@
       <changelist id="7102eca7-3cf3-43a7-94b7-9a6395e16a90" name="Default" comment="" />
       <created>1416338140483</created>
       <updated>1416338140483</updated>
-      <workItem from="1416338142254" duration="19656000" />
+      <workItem from="1416338142254" duration="21083000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19656000" />
+    <option name="totallyTimeSpent" value="21083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="719" extended-state="6" />
@@ -527,7 +526,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2584814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32695374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32695374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -641,10 +640,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shirwa/code2040/AsyncClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1061" max-vertical-offset="1455">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1455">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#1458#1883#0" expanded="true" />
             <element signature="e#1872#1873#0" expanded="true" />
             <element signature="e#2168#2188#0" expanded="true" />
@@ -654,32 +652,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shirwa/code2040/Challenge.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4755435" vertical-offset="3162" max-vertical-offset="3885">
-          <caret line="253" column="42" selection-start-line="253" selection-start-column="42" selection-end-line="253" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.32554257" vertical-offset="420" max-vertical-offset="3900">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1569#1570#0" expanded="true" />
-            <element signature="e#1649#1650#0" expanded="true" />
-            <element signature="e#4180#4181#0" expanded="true" />
-            <element signature="e#4269#4270#0" expanded="true" />
-            <element signature="e#5058#5059#0" expanded="true" />
-            <element signature="e#5118#5119#0" expanded="true" />
-            <element signature="e#5188#5189#0" expanded="true" />
-            <element signature="e#5273#5274#0" expanded="true" />
-            <element signature="e#6358#6359#0" expanded="true" />
-            <element signature="e#6435#6436#0" expanded="true" />
-            <element signature="e#6637#6645#0" expanded="true" />
-            <element signature="e#7420#7421#0" expanded="true" />
-            <element signature="e#7478#7479#0" expanded="true" />
-            <element signature="e#7548#7549#0" expanded="true" />
-            <element signature="e#7630#7631#0" expanded="true" />
-            <element signature="e#8411#8412#0" expanded="true" />
-            <element signature="e#8489#8490#0" expanded="true" />
-            <element signature="e#9468#9469#0" expanded="true" />
-            <element signature="e#9526#9527#0" expanded="true" />
-            <element signature="e#9596#9597#0" expanded="true" />
-            <element signature="e#9675#9676#0" expanded="true" />
-            <marker date="1416369730000" expanded="true" signature="6095:6275" placeholder="..." />
+            <element signature="e#1543#1544#0" expanded="true" />
+            <element signature="e#1623#1624#0" expanded="true" />
+            <element signature="e#4154#4155#0" expanded="true" />
+            <element signature="e#4243#4244#0" expanded="true" />
+            <element signature="e#5032#5033#0" expanded="true" />
+            <element signature="e#5092#5093#0" expanded="true" />
+            <element signature="e#5162#5163#0" expanded="true" />
+            <element signature="e#5247#5248#0" expanded="true" />
+            <element signature="e#6332#6333#0" expanded="true" />
+            <element signature="e#6409#6410#0" expanded="true" />
+            <element signature="e#6611#6619#0" expanded="true" />
+            <element signature="e#7394#7395#0" expanded="true" />
+            <element signature="e#7452#7453#0" expanded="true" />
+            <element signature="e#7522#7523#0" expanded="true" />
+            <element signature="e#7604#7605#0" expanded="true" />
+            <element signature="e#8385#8386#0" expanded="true" />
+            <element signature="e#8463#8464#0" expanded="true" />
+            <element signature="e#9518#9519#0" expanded="true" />
+            <element signature="e#9576#9577#0" expanded="true" />
+            <element signature="e#9646#9647#0" expanded="true" />
+            <element signature="e#9725#9726#0" expanded="true" />
+            <marker date="1416376239000" expanded="true" signature="6069:6249" placeholder="..." />
           </folding>
         </state>
       </provider>
