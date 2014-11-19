@@ -15,6 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/*
+    Custom HttpClient class that utilizes threads to make HTTP requests off the main thread.
+ */
+
 public class AsyncClient {
 
     private HttpClient mClient;
